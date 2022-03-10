@@ -49,6 +49,9 @@ def api_search():
     else:
         return "Page Not Found!"
     name=revise(name)
+    if len(name.split(" "))==1:
+        return jsonify(laptops[name])
+
     brand,model=name.split(" ")
     result=[]
     for laptop in list(laptops[brand].keys()):
